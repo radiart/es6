@@ -1,0 +1,22 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "es6 Tutorial \r https://www.youtube.com/playlist?list=PLYxzS__5yYQkvEC2Dr1W9CTODbFQ0GhBZ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radiart/es6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radiart/es6/issues"
+  },
+  "homepage": "https://github.com/radiart/es6#readme",
+  "dependencies": {
+    "traceur": "0.0.111"
+  }
+}
