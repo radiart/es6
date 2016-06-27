@@ -108,7 +108,7 @@ myFunction(100);
 
 // Fat Arrow Functions *******************/
 
-var add = function (  num1, num2 ) {
+var add = function ( num1, num2 ) {
 	return num1 + num2;
 };
 var add = ( num1, num2 ) => {
@@ -116,3 +116,76 @@ var add = ( num1, num2 ) => {
 }
 var add = ( num1, num2 ) => num1 + num2;
 console.log( add(2,8) );
+
+
+// Lexical Scope *******************/
+
+function startGame(  ) {
+	this.lives = 0;
+	this.addLives = function () {
+		this.oneUp = setTimeout( function(){
+			console.log(++this.lives);
+		}, 1000);
+	}
+}
+function startGame(  ) {
+	this.lives = 0;
+	this.addLives = () => {
+		this.oneUp = setTimeout( () => {
+				console.log(++this.lives);
+	}, 1000);
+	}
+}
+var mario = new startGame();
+mario.addLives();
+
+
+// String Templates *******************/
+
+var name = 'codedamn';
+var hellowWorld = `hey there ${name}! From EMCAScript6`;
+console.log( hellowWorld );
+var num1 = 2, num2 = 5;
+var res = `2 + 5 equals = ${ num1 + num2 }`;
+console.log( res );
+var myStr = ` my 
+long
+string`;
+console.log( myStr );
+
+
+// Classes *******************/
+
+class shape {
+	constructor(shapeName, dimensions) {
+		// console.log('YAY');
+		this.allowedShapes = ['square','rectangle','circle'];
+		this.shapeName = shapeName;
+		this.dimensions = dimensions;
+	}
+
+	area() {
+		if( this.validateShape()) {
+			if(this.shapeName == 'square') {
+				return this.dimensions[0]*this.dimensions[0];
+			} else if ( this.shapeName == 'rectangle') {
+				return this.dimensions[0]*this.dimensions[1];
+			} else if ( this.shapeName == 'circle') {
+				return 2*Math.PI*this.dimensions[0];
+			}
+			return false;
+		}
+		return false;
+	}
+
+	validateShape(){
+		return( this.allowedShapes.indexOf(this.shapeName) > -1);
+	}
+}
+
+var myShape = new shape('square', [10]);
+console.log( myShape.area() );
+var myShape = new shape('rectangle', [5,44]);
+console.log( myShape.area() );
+var myShape = new shape('circle', [100]);
+console.log( myShape.area() );
