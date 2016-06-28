@@ -189,3 +189,39 @@ var myShape = new shape('rectangle', [5,44]);
 console.log( myShape.area() );
 var myShape = new shape('circle', [100]);
 console.log( myShape.area() );
+
+// Inherit other Class
+
+class myColor {
+	getRandomColor() {
+		var colors = ['red', 'green', 'blue','yellow','pink','black'];
+		return colors[Math.floor(Math.random()*6)];
+	}
+}
+
+class shape2 extends myColor {
+	constructor(shapeName, dimensions) {
+		// console.log('YAY');
+		super();
+		this.allowedShapes = ['square','rectangle','circle'];
+		this.shapeName = shapeName;
+		this.dimensions = dimensions;
+	}
+
+	draw(){
+		if(this.shapeName == 'square') {
+			document.write('<div style="width:'+this.dimensions[0]+'px;  height: '+this.dimensions[0]+'px;background:'+super.getRandomColor()+'"></div><br>');
+		} else if( this.shapeName == 'rectangle' ) {
+			document.write('<div style="width:'+this.dimensions[0]+'px;  height: '+this.dimensions[1]+'px;background:'+super.getRandomColor()+'"></div><br>');
+		} else if( this.shapeName == 'circle' ) {
+			document.write('<div style="width:'+this.dimensions[0]*2+'px; height: '+this.dimensions[0]*2+'px; border-radius: 50%;background:'+super.getRandomColor()+'"></div>');
+		}
+	}
+}
+
+var myShape = new shape2('square', [10]);
+console.log( myShape.draw() );
+var myShape = new shape2('rectangle', [150,50]);
+console.log( myShape.draw() );
+var myShape = new shape2('circle', [100]);
+console.log( myShape.draw() );
